@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-10-28T13:46:51Z",
+  "updated": "2026-10-28T16:15:54Z",
   "apps": [
     {
       "id": "macmax",
@@ -23,10 +23,10 @@
         "light": "#008760"
       },
       "latest": {
-        "version": "0.3.1",
-        "tag": "v0.3.1",
-        "publishedAt": "2026-10-28T12:59:22Z",
-        "url": "https://github.com/danieltamas/macmax/releases/tag/v0.3.1"
+        "version": "0.4.0",
+        "tag": "v0.4.0",
+        "publishedAt": "2026-10-28T16:15:14Z",
+        "url": "https://github.com/danieltamas/macmax/releases/tag/v0.4.0"
       }
     },
     {
@@ -50,10 +50,10 @@
         "light": "#0B7F86"
       },
       "latest": {
-        "version": "0.11.0",
-        "tag": "v0.11.0",
-        "publishedAt": "2026-10-28T13:25:25Z",
-        "url": "https://github.com/danieltamas/bton/releases/tag/v0.11.0"
+        "version": "0.12.0",
+        "tag": "v0.12.0",
+        "publishedAt": "2026-10-28T14:01:24Z",
+        "url": "https://github.com/danieltamas/bton/releases/tag/v0.12.0"
       }
     },
     {
