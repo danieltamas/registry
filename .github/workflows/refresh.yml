@@ -1,0 +1,49 @@
+# Writes each app's latest release into apps.json. Runs hourly as the safety net, and within a minute of a
+# release when the app's release step sends the ping (docs/PRODUCER.md).
+name: refresh
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  repository_dispatch:
+    types: [release]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# A ping and the hourly run never race to push.
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # main as it is now, not the commit that queued this run: an earlier run may have pushed since.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Read the latest releases
+        id: refresh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # A failed read keeps the old value and exits 2; the run still commits what did change, then fails.
+        run: |
+          set +e
+          python3 scripts/refresh.py
+          echo "status=$?" >> "$GITHUB_OUTPUT"
+      - name: Validate
+        run: python3 scripts/validate.py
+      - name: Commit
+        run: |
+          git diff --quiet apps.json && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: refresh latest releases" -- apps.json
+          git push
+      - name: Report failed reads
+        if: steps.refresh.outputs.status != '0'
+        run: exit 1
