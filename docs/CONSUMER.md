@@ -74,8 +74,9 @@ does not know. A field removed or a meaning changed bumps `schema`.
    `raw.githubusercontent.com`, `getrun.dev` or `getcloak.dev`; `install` exactly
    `brew install [--cask ]danieltamas/tap/<name>` or `curl -fsSL https://<allowed host>/<path> | sh` (or
    `| bash`), matched whole, never by searching inside it.
-   A file whose top level fails (not JSON, too large, unknown `schema`, `apps` not a list) is refused whole:
-   keep the last good and show the problem. An app entry that fails a rule is left out, and the header says
+   A file whose top level fails (not JSON, too large, unknown `schema`, `apps` not a list or empty) is refused
+   whole: keep the last good and show the problem. Past 32 entries, the first 32 are read and the rest count as
+   left out, so a later raise of the producer's cap is not a breaking change. An app entry that fails a rule is left out, and the header says
    "<n> app(s) need a newer <App> to show": a host added after this release is the usual cause. Never show an
    entry that failed.
 4. **Unknown schema**: keep the last good and say "This version of <App> can't read the newer app list.
@@ -137,6 +138,9 @@ refresh button that shows progress while it reads.
 
 ## Reference
 
-MacMax's first version of the page, before the registry, is the visual reference:
-`Sources/MacMax/SettingsMoreApps.swift` and `MoreAppsController.swift` in danieltamas/macmax (cards, chips,
-install line, icons). The registry replaces its hard-coded list and its GitHub calls; the look stays.
+MacMax is the first consumer and the reference, in danieltamas/macmax:
+`Sources/MacMaxCore/Registry/` (decoder, rules, store, icon check, refresh rule, download),
+`Sources/MacMax/MoreAppsController.swift` (bundled, stored and live list; icons; installed copies),
+`Sources/MacMax/SettingsMoreApps.swift` (the cards), `scripts/registry-snapshot.sh` (the bundled copy), and
+its acceptance tests `Tests/MacMaxCoreTests/AppRegistryAcceptanceTests.swift` and
+`RegistryStoreAcceptanceTests.swift`, which a Swift consumer can port case for case.

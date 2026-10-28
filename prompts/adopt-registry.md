@@ -42,6 +42,6 @@ P0-P2, and the app built from source shows the live list. Report what you could 
 
 | Project | id | Today | Notes |
 |---|---|---|---|
-| MacMax | `macmax` | `Sources/MacMax/SettingsMoreApps.swift` (list, cards), `MoreAppsController.swift` (GitHub calls, installed copies), `Support/MoreApps/*.png` | `GitHubReleases` in MacMaxCore stays: the app's own update check uses it. `InstalledStanding` and `InstalledCopy` stay. The snapshot replaces `Support/MoreApps`. |
+| MacMax | `macmax` | Done (the reference: docs/CONSUMER.md, Reference). | Copy its approach and its acceptance tests rather than starting over. |
 | Bton | `bton` | `Sources/Bton/MorePane.swift` (list, cards), `ReleaseLookup` / `MoreAppReleases` for the GitHub calls | Bton's list still shows MacMax in amber; the registry's teal (from MacMax's icon) wins. |
 | RMJ | `rmj` | `Sources/RMJ/MoreAppsPane.swift` (list, cards, `ReleaseFeed` calls) | Same amber note for MacMax. RMJ has no release yet: its own card in the other apps shows "In development" until it does. |
