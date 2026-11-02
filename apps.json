@@ -154,6 +154,28 @@
         "publishedAt": "2026-07-06T08:59:07Z",
         "url": "https://github.com/danieltamas/cloak/releases/tag/v0.4.5"
       }
+    },
+    {
+      "id": "agencil",
+      "name": "Agencil",
+      "kind": "menu-bar",
+      "platform": "macOS",
+      "pitch": "A council of coding agents, on your own subscriptions.",
+      "detail": "Ask any agent, or convene several to answer blind, argue and settle on a recorded verdict, from the menu bar.",
+      "repo": "danieltamas/agencil",
+      "site": null,
+      "icon": "icons/agencil.png",
+      "iconShape": "macos",
+      "install": "brew install --cask danieltamas/tap/agencil",
+      "mac": {
+        "bundleId": "ro.danieltamas.agencil",
+        "sourceKey": "AgencilSource"
+      },
+      "hue": {
+        "dark": "#A98BFF",
+        "light": "#5B45D6"
+      },
+      "latest": null
     }
   ]
 }
