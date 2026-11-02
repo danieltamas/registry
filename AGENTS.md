@@ -8,6 +8,8 @@ More apps page. Owner: Daniel Tamas. Repo: github.com/danieltamas/registry. MIT.
 ```
 apps.json                       the registry, schema 1
 icons/<id>.png                  256 x 256 PNG, at most 64 KiB
+thumbs/<id>.png                 128 x 128 PNG, already rounded, for README grids (GitHub strips CSS)
+scripts/render-readme.py        writes the "More apps" grid into an app's README; its release step runs it
 scripts/validate.py             the contract as code; CI and the refresh run it
 scripts/refresh.py              writes each app's `latest` from GitHub; only the workflow runs it
 .github/workflows/refresh.yml   hourly and on `repository_dispatch` type `release`

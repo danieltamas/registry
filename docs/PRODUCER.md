@@ -54,6 +54,19 @@ prerelease. Its tag must be `X.Y.Z` or `vX.Y.Z`; any other tag fails the refresh
 previous value (the run turns red). A public repository with no release reads as `latest: null`; a repository
 that does not answer at all (made private, renamed, deleted) keeps its previous value and turns the run red.
 
+## The README grid
+
+Each app's README carries a "More apps" grid of the other apps, between `<!-- registry:apps:begin -->` and
+`<!-- registry:apps:end -->`. Regenerate it in the release step, then commit the README if it changed:
+
+```
+python3 <(curl -fsSL https://raw.githubusercontent.com/danieltamas/registry/main/scripts/render-readme.py) --exclude <id> README.md
+```
+
+The thumbnails are `thumbs/<id>.png` here (128 x 128, rounded, hand-made from the icon: `full-bleed` icons inset
+10% and clipped to a 22.5% corner). A new or changed icon needs a new thumb in the same commit; a changed thumb
+gets a new file name, as icons do.
+
 ## Adding or changing an app
 
 Edit `apps.json` by hand, never `latest` or `updated`, then `python3 scripts/validate.py`:
