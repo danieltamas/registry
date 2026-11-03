@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-11-03T09:17:43Z",
+  "updated": "2026-11-03T10:10:50Z",
   "apps": [
     {
       "id": "macmax",
@@ -50,10 +50,10 @@
         "light": "#0B7F86"
       },
       "latest": {
-        "version": "0.31.2",
-        "tag": "v0.31.2",
-        "publishedAt": "2026-11-03T09:17:19Z",
-        "url": "https://github.com/danieltamas/bton/releases/tag/v0.31.2"
+        "version": "0.32.0",
+        "tag": "v0.32.0",
+        "publishedAt": "2026-11-03T10:10:33Z",
+        "url": "https://github.com/danieltamas/bton/releases/tag/v0.32.0"
       }
     },
     {
