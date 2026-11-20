@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated": "2026-11-19T11:27:26Z",
+  "updated": "2026-11-20T10:52:40Z",
   "apps": [
     {
       "id": "macmax",
@@ -176,10 +176,10 @@
         "light": "#5B45D6"
       },
       "latest": {
-        "version": "0.8.1",
-        "tag": "v0.8.1",
-        "publishedAt": "2026-11-11T15:07:34Z",
-        "url": "https://github.com/danieltamas/agencil/releases/tag/v0.8.1"
+        "version": "0.8.2",
+        "tag": "v0.8.2",
+        "publishedAt": "2026-11-20T10:51:27Z",
+        "url": "https://github.com/danieltamas/agencil/releases/tag/v0.8.2"
       }
     }
   ]
